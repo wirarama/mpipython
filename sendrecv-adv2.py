@@ -17,7 +17,7 @@ if rank==0:
             comm.send(data2,dest=a,tag=1)
             print(a,end=",")
     print()
-elif (rank%2)==0:
+elif (rank%2)==0: 
     data3 = comm.recv(source=0,tag=1)
     for a in range(1,size):
         if a%2!=0:
