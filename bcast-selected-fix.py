@@ -17,12 +17,14 @@ elif rank == 2:
 
 n = int(ceil(size/3))
 out = []
+#size = 32
 for x in range(0,size,n):
     if (x+n) < size:
         out.append([i for i in range(x,x+n)])
     else:
         out.append([i for i in range(x,size)])
-
+if rank==0:
+    print(n,out)
 data0 = comm.bcast(data0,root=0)
 data1 = comm.bcast(data1,root=1)
 data2 = comm.bcast(data2,root=2)
