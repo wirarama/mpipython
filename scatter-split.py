@@ -10,5 +10,8 @@ if rank == 0:
     src = np.arange(100)
     data = np.array_split(src,size)
 
-data = comm.scatter(data, root=0)
-print("rank %d data : " % (rank),data)
+try:
+    data = comm.scatter(data, root=0)
+    print("rank %d data : " % (rank),data)
+except:
+    print("error boss")
