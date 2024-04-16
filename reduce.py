@@ -3,7 +3,8 @@ import random as rd
 comm = MPI.COMM_WORLD
 
 data = comm.rank+1
-data2 = [comm.rank,data*rd.randint(0,comm.size)]
+#data2 = [comm.rank,data*rd.randint(0,comm.size)]
+data2 = ["f21"+str(comm.rank),comm.rank+1]
 outsum = comm.reduce(data,op=MPI.SUM,root=0)
 outmin = comm.reduce(data,op=MPI.MIN,root=0)
 outmax = comm.reduce(data,op=MPI.MAX,root=0)
